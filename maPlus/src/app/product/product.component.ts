@@ -1,31 +1,32 @@
 import { Component, OnInit } from '@angular/core';
+import { AlertifyService } from '../services/alertify.service';
 import { Product } from './product';
+import { ProductService } from '../services/product.service';
 
 @Component({
   selector: 'app-product',
   templateUrl: './product.component.html',
-  styleUrls: ['./product.component.css']
+  styleUrls: ['./product.component.css'],
+  providers: [ProductService]
 })
 export class ProductComponent implements OnInit {
 
   title = "Ürün Listesi"
   filterText: undefined;
-  products: Product[] = [
+  products: Product[] = [];
 
-    {id:1,name:'iphone',price:3000,categoryID:1,desc:'new iphone',imgUrl:'https://images.unsplash.com/photo-1510557880182-3d4d3cba35a5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80'},
-    {id:2,name:'samsung',price:2000,categoryID:2,desc:'new samsung',imgUrl:'https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1471&q=80'}
-
-  ]
-
-  constructor() { }
+  constructor(private myAlertifyService:AlertifyService, private productService:ProductService) { }
 
 
   ngOnInit(): void {
+      this.productService.getProducts().subscribe(data=>{
+        this.products = data;
+      })
   }
 
   addToChart(p:Product)
   {
-    alert("eklendi")
+    this.myAlertifyService.success(p.name+" sepete eklendi")
   }
 
 }
