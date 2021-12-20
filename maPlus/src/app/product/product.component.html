@@ -1,6 +1,5 @@
 <div class="container-fluid">
-    <h3 class="m-3" *ngIf="products; else: noProduct">&nbsp;{{title}}</h3>
-
+    <app-category></app-category>
     <div class="form-group m-3">
         <input type="text" class="form-control" id="productName" placeholder="Ürün Ara.." [(ngModel)]="filterText" />
         <small *ngIf="filterText">

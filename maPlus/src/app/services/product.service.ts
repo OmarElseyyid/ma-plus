@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { catchError, tap } from 'rxjs/operators';
 import { Observable,throwError } from 'rxjs';
 import { Product } from '../product/product';
@@ -10,8 +10,25 @@ export class ProductService {
   path= "http://localhost:3000/products";
   constructor(private http:HttpClient) { }
 
-  getProducts():Observable<Product[]>{
-    return this.http.get<Product[]>(this.path).pipe(
+  getProducts(categoryID:number):Observable<Product[]>{
+    let newPath = this.path
+    if (categoryID) {
+      newPath += "?categoryID="+categoryID
+    }
+    return this.http.get<Product[]>(newPath).pipe(
+      tap(data=>console.log(JSON.stringify(data))),
+      catchError(this.handleError)
+    );
+  }
+
+  addProduct(product:Product):Observable<Product>{
+    const httpOptions  = {
+      headers: new HttpHeaders({
+        'Content-Type':'application/json',
+        'Auhorization': 'Token'
+      })
+    }
+    return this.http.post<Product>(this.path, product).pipe(
       tap(data=>console.log(JSON.stringify(data))),
       catchError(this.handleError)
     );

@@ -12,5 +12,11 @@ export class AlertifyService {
   success(msg:string){
     alertify.success(msg)
   }
+  warning(msg:string){
+    alertify.warning(msg)
+  }
+  error(msg:string){
+    alertify.error(msg)
+  }
 
 }

@@ -1,0 +1,20 @@
+<form [formGroup]="UserAddForm" class="form-signup  p-2 pt-5" (ngSubmit)="addUser()">
+    <div class="text-center mb-4">
+        <h1 class="h3 mb-3 fw-normal">Sisteme Kayit Ol</h1>
+    </div>
+    <div class="form-label-group m-1">
+        <input type="text" formControlName="username" name="username" placeholder="Kullanıcı Adı" class="form-control">
+    </div>
+    <div class="form-label-group m-1">
+        <input type="email" formControlName="email" name="email" placeholder="Mail Adresi" class="form-control">
+    </div>
+    <div class="form-label-group m-1">
+        <input type="password" formControlName="password" name="password" placeholder="Şifre" class="form-control">
+    </div>
+    <div class="form-label-group m-1">
+        <button class="w-100 btn btn-primary" type="submit">Kayit Ol</button>
+    </div>
+    <a routerLink="/login" class="nav-link">Giriş Yap</a>
+
+    <p class="mt-5 mb-3 text-muted">&copy; 2021-2022</p>
+</form>

@@ -1,0 +1,62 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "iphone",
+      "price": "3000",
+      "categoryID": "2",
+      "desc": "new iphone",
+      "imgUrl": "https://images.unsplash.com/photo-1510557880182-3d4d3cba35a5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
+    },
+    {
+      "id": 2,
+      "name": "samsung",
+      "price": "4000",
+      "categoryID": "1",
+      "desc": "new samsung",
+      "imgUrl": "https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1471&q=80"
+    },
+    {
+      "id": 3,
+      "name": "oppo",
+      "price": "2000",
+      "categoryID": "6",
+      "desc": "new oppo",
+      "imgUrl": "https://images.unsplash.com/photo-1609388449750-b504ef6d97f1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80"
+    },
+    {
+      "name": "iphone 13",
+      "desc": "iphone 13 beyaz renkli",
+      "imgUrl": "https://images.unsplash.com/photo-1510557880182-3d4d3cba35a5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80",
+      "price": "7000",
+      "categoryID": "2",
+      "id": 4
+    }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "name": "Samsung"
+    },
+    {
+      "id": 2,
+      "name": "Apple"
+    },
+    {
+      "id": 3,
+      "name": "Huawei"
+    },
+    {
+      "id": 4,
+      "name": "LG"
+    },
+    {
+      "id": 5,
+      "name": "Xiaomi"
+    },
+    {
+      "id": 6,
+      "name": "Oppo"
+    }
+  ]
+}

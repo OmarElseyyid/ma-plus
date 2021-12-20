@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AlertifyService } from '../services/alertify.service';
 import { Product } from './product';
 import { ProductService } from '../services/product.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-product',
@@ -15,18 +16,25 @@ export class ProductComponent implements OnInit {
   filterText: undefined;
   products: Product[] = [];
 
-  constructor(private myAlertifyService:AlertifyService, private productService:ProductService) { }
+  constructor(
+    private myAlertifyService: AlertifyService,
+    private productService: ProductService,
+    private activatedRoute: ActivatedRoute
+
+  ) { }
 
 
   ngOnInit(): void {
-      this.productService.getProducts().subscribe(data=>{
+    this.activatedRoute.params.subscribe(params => {
+      this.productService.getProducts(params["CatID"]).subscribe(data => {
         this.products = data;
       })
+    })
+
   }
 
-  addToChart(p:Product)
-  {
-    this.myAlertifyService.success(p.name+" sepete eklendi")
+  addToChart(p: Product) {
+    this.myAlertifyService.success(p.name + " sepete eklendi")
   }
 
 }
